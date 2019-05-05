@@ -1,0 +1,16 @@
+{
+  "name": "nalkprotect",
+  "version": "4.5.3",
+  "description": "NalkProtect - A Discord security bot that has all of the moderation commands. For bonus, there's also some fun commands too.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nalkyks",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "discord.js-commando": "^0.10.0",
+    "ffmpeg": "0.0.4"
+  }
+}
