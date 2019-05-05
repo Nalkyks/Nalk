@@ -6,7 +6,7 @@ const bot = new Commando.Client({
     disableEveryone: false,
     unknownCommandResponse: false
 });
-const TOKEN = 'NTIyNTc1MTg0MjQzNDU4MDU5.XJ6MQw.sOyXKEpls2qqK-Pql7nXqn14XdY';
+const TOKEN = process.env.TOKEN;
 
 bot.registry.registerGroup('fun', 'Fun');
 bot.registry.registerGroup('moderation', 'Moderation');
