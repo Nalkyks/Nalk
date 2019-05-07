@@ -8,23 +8,21 @@ const bot = new Commando.Client({
 });
 const TOKEN = process.env.TOKEN;
 
-bot.registry.registerGroup('fun', 'Fun');
+bot.registry.registerGroup('entertainment', 'entertainment');
 bot.registry.registerGroup('moderation', 'Moderation');
-bot.registry.registerGroup('management', 'Management');
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + "/commands");
 
 bot.on('message', message => {
-    if(message.content == 'Hello')
+    if(message.content == '522575184243458059')
     {
-        message.channel.send("Hello there, " + message.author)
+        message.channel.send("Testing complete.")
     }
 });
 
 bot.on('ready', () => {
     bot.user.setStatus('online')
-    //bot.user.setPresence({ game: { name: 'Protecting Guilds | ;help', type: 1 } })
-    console.log("Bot started and is ready to go!");
+    console.log("All systems online. Bot is ready.");
 });
 
 bot.login(TOKEN);

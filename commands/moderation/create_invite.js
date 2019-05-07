@@ -7,7 +7,7 @@ class CreateInviteCommand extends Commando.Command
     {
         super(client,{
             name: 'createinvite',
-            group: 'management',
+            group: 'moderation',
             memberName: 'createinvite',
             description: "Creates an instant invite with the default settings."
         });
@@ -20,9 +20,11 @@ class CreateInviteCommand extends Commando.Command
             message.channel.send("You do not have permission to create an instant invite.")
         }
         message.channel.createInvite()
-            .then(invite => console.log(`Created an invite with a code of ${invite.code} in ${message.guild}.`))
+            .then(invite => message.channel.send(`Successfully created an instant invite link with the code of: ${invite.code}`))
+            .then(invite => console.log(`Successfully created an instant invite link with the code of: ${invite.code}`))
             .catch(console.error);
         message.delete();
+        console.log("The 'createinvite' command has been completed successfully.");
     }
 }
 

@@ -9,7 +9,7 @@ class DiceRollCommand extends Commando.Command
             name: 'purge',
             group: 'moderation',
             memberName: 'purge',
-            description: 'Deletes a number of messages based on user choice.'
+            description: 'Deletes a set of messages based on the number after the command.'
         });
     }
 
@@ -17,10 +17,16 @@ class DiceRollCommand extends Commando.Command
     {
         if(!message.member.hasPermission('MANAGE_MESSAGES'))
         {
-            message.reply("You don't have permission to use this command.");
+            let invalidPermission = new Discord.RichEmbed()
+                .setTitle('Invalid Permissions')
+                .setDescription("You do not have permission to use the `purge` command. Contact the server/guild owner or an administrator/moderator for help.")
+                .setThumbnail('https://bit.ly/2DRDdkA')
+                .setColor(0xFF0000)
+                .setFooter('Requested by: ' + message.author.username)
+            message.channel.sendEmbed(invalidPermission);
+            message.delete();
             return;
         }
-
         message.delete()
             .then()
             {
@@ -30,12 +36,13 @@ class DiceRollCommand extends Commando.Command
                 }
     
                 const fetched = await message.channel.fetchMessages({limit: args[0]});
-                console.log(fetched.size + ' messages found, deleting...');
+                console.log("Deleted " + fetched.size + ' message(s).');
     
                 message.channel.bulkDelete(fetched)
                     .catch(error => message.channel.send(`Error: ${error}`));
     
             }
+        console.log("The 'purge' command has been completed successfully.")
     }
 }
 

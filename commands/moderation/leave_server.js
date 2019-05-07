@@ -7,7 +7,7 @@ class LeaveServerCommand extends Commando.Command
     {
         super(client,{
             name: 'leaveserver',
-            group: 'management',
+            group: 'moderation',
             memberName: 'leaveserver',
             description: "Leaves the server the command was sent in so you don't have to kick or ban NalkProtect."
         });
@@ -17,7 +17,14 @@ class LeaveServerCommand extends Commando.Command
     {
         if(!message.member.hasPermission('MANAGE_GUILD'))
         {
-            message.reply("You don't have permission to use this command.");
+            let invalidPermission = new Discord.RichEmbed()
+                .setTitle('Invalid Permissions')
+                .setDescription("You do not have permission to use the `leaveserver` command. Contact the server/guild owner or an administrator/moderator for help.")
+                .setThumbnail('https://bit.ly/2DRDdkA')
+                .setColor(0xFF0000)
+                .setFooter('Requested by: ' + message.author.username)
+            message.channel.sendEmbed(invalidPermission)
+            message.delete()
             return;
         }
         message.delete()
@@ -26,7 +33,7 @@ class LeaveServerCommand extends Commando.Command
             message.guild.leave()
                 .then(g => console.log(`Successfully left the guild '${g}'.`))
                 .catch(console.error)
-            console.log("The command completed successfully.");
+            console.log("The 'leaveserver' command has been completed successfully.");
         }
     }
 }

@@ -7,9 +7,9 @@ class MemberCountCommand extends Commando.Command
     {
         super(client,{
             name: 'membercount',
-            group: 'management',
+            group: 'entertainment',
             memberName: 'membercount',
-            description: 'Shows how many members are in the guild.'
+            description: 'Shows the commander how many members are in the guild the command was sent in.'
         });
     }
 
@@ -21,7 +21,7 @@ class MemberCountCommand extends Commando.Command
             .setColor(0xFF782B)
             .setFooter('Requested by: ' + message.author.username)
         message.channel.sendEmbed(currentMembers);
-        console.log("The membercount command completed successfully.")
+        console.log("The 'membercount' command has been completed successfully.")
     }
 }
 

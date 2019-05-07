@@ -7,7 +7,7 @@ class CoinFlipCommand extends Commando.Command
     {
         super(client,{
             name: 'flip',
-            group: 'fun',
+            group: 'entertainment',
             memberName: 'flip',
             description: 'Flips a coin landing on either heads or tails.'
         });
@@ -19,20 +19,21 @@ class CoinFlipCommand extends Commando.Command
         if(chance == 0)
         {
             var headsEmbed = new Discord.RichEmbed()
-                .setTitle('Your Coin Has Landed on Heads!')
-                .setDescription("The coin you had recently fliped landed on _heads_. If you want to flip the coin again, type the `flip` command again.")
+                .setTitle('Coin Flip Results')
+                .setDescription("The coin you had recently flipped landed on _heads_. If you want to flip the coin again, type the `flip` command again.")
                 .setColor(0xFF782B)
-                .setFooter('Requested by: ' + message.author)
+                .setFooter('Requested by: ' + message.author.username)
             message.channel.sendEmbed(headsEmbed);
         }
         else
         {
             var tailsEmbed = new Discord.RichEmbed()
-                .setTitle('Your Coin Has Landed on Tails!')
-                .setDescription("The coin you had recently fliped landed on _tails_. If you want to flip the coin again, type the `flip` command again.")
+                .setTitle('Coin Flip Results')
+                .setDescription("The coin you had recently flipped landed on _tails_. If you want to flip the coin again, type the `flip` command again.")
                 .setColor(0xFF782B)
-                .setFooter('Requested by: ' + message.author)
+                .setFooter('Requested by: ' + message.author.username)
             message.channel.sendEmbed(tailsEmbed);
+            console.log("The 'flip' command has successfully been successfully completed.");
         }
     }
 }

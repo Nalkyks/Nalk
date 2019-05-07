@@ -9,7 +9,7 @@ class BanCommand extends Commando.Command
             name: 'ban',
             group: 'moderation',
             memberName: 'ban',
-            description: 'Bans the first mentioned user.'
+            description: 'Bans the first mentioned user after the command.'
         });
     }
 
@@ -17,10 +17,10 @@ class BanCommand extends Commando.Command
     {
         if(!message.member.hasPermission('BAN_MEMBERS'))
         {
-            let commandDenied = new Discord.RichEmbed()
-                .setTitle('Command Denied')
-                .setDescription("You do not have the permissions to ban other users. Please contact an administrator or the server owner for help.")
-                .setThumbnail('https://cdn4.iconfinder.com/data/icons/basic-elements-circle/614/754_-_Cancel-256.png')
+            let invalidPermission = new Discord.RichEmbed()
+                .setTitle('Invalid Permissions')
+                .setDescription("You do not have permission to use the `ban` command. Contact the server/guild owner or an administrator/moderator for help.")
+                .setThumbnail('https://bit.ly/2DRDdkA')
                 .setColor(0xFF0000)
                 .setFooter('Requested by: ' + message.author.username)
             message.channel.sendEmbed(commandDenied)
@@ -33,7 +33,7 @@ class BanCommand extends Commando.Command
             let invalidUser = new Discord.RichEmbed()
                 .setTitle('Member Not Found')
                 .setDescription("The requested user to be banned is invalid. User may have left the server before you could've banned them, or you made a typo.")
-                .setThumbnail('https://cdn4.iconfinder.com/data/icons/basic-elements-circle/614/754_-_Cancel-256.png')
+                .setThumbnail('https://bit.ly/2DRDdkA')
                 .setColor(0xFF0000)
                 .setFooter('Requested by: ' + message.author.username)
             message.channel.sendEmbed(invalidUser)
@@ -46,8 +46,8 @@ class BanCommand extends Commando.Command
         {
             let invalidReason = new Discord.RichEmbed()
                 .setTitle('No Reason Was Specified')
-                .setDescription("No reason was specified on why this user is getting banned. Please provide a reason on why this user is getting banned.")
-                .setThumbnail('https://cdn4.iconfinder.com/data/icons/basic-elements-circle/614/754_-_Cancel-256.png')
+                .setDescription("No reason was specified on why " + bannedUser + " is getting banned. Please provide a reason on why " + bannedUser + " is getting banned.")
+                .setThumbnail('https://bit.ly/2DRDdkA')
                 .setColor(0xFF0000)
                 .setFooter('Requested by: ' + message.author.username)
             message.channel.sendEmbed(invalidReason)
@@ -58,16 +58,16 @@ class BanCommand extends Commando.Command
             .then(console.log)
             .catch(console.error);
         message.delete();
-        let banEmbed = new Discord.RichEmbed() //Creates embed of ban details
-            .setDescription("Ban Details")
+        let banEmbed = new Discord.RichEmbed()
+            .setTitle("Ban Details")
+            .setDescription("These are the ban details for " + bannedUser + ", and gives you more information about the banned user.")
             .setColor(0xFF0000)
             .addField("Banned User:", bannedUser + " with ID: " + bannedUser.id)
             .addField("Banned By:", message.author + " with ID: " + message.author.id)
-            .addField("Banned in the:", message.channel + " channel")
             .addField("Banned On:", message.createdAt)
             .addField("Reason for Ban:", reason)
         message.channel.sendEmbed(banEmbed);
-        console.log("The ban command has completed successfully."); 
+        console.log("The 'ban' command has been completed successfully."); 
     }
 }
 
