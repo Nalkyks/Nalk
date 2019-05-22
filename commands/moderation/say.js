@@ -40,8 +40,8 @@ class SayCommand extends Commando.Command
             message.delete()
             return;
         }
-        message.channel.send(args);
         message.delete();
+        message.channel.send(args);
         console.log("The 'say' command has been completed successfully."); 
     }
 }
