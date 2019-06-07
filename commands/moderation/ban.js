@@ -23,7 +23,7 @@ class BanCommand extends Commando.Command
                 .setThumbnail('https://bit.ly/2DRDdkA')
                 .setColor(0xFF0000)
                 .setFooter('Requested by: ' + message.author.username)
-            message.channel.sendEmbed(commandDenied)
+            message.channel.sendEmbed(invalidPermission)
             message.delete()
             return;
         }
