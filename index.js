@@ -8,7 +8,7 @@ const bot = new Commando.Client({
 });
 const TOKEN = process.env.TOKEN;
 
-bot.registry.registerGroup('entertainment', 'entertainment');
+bot.registry.registerGroup('entertainment', 'Entertainment');
 bot.registry.registerGroup('moderation', 'Moderation');
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + "/commands");
