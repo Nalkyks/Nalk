@@ -2,7 +2,7 @@ const Commando = require('discord.js-commando');
 const Discord = require('discord.js');
 const bot = new Commando.Client({
     commandPrefix: ';',
-    owner: '263056218090766337',
+    owner: process.env.OWNER,
     disableEveryone: false,
     unknownCommandResponse: false
 });
