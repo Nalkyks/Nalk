@@ -28,7 +28,7 @@ class SayCommand extends Commando.Command
             message.delete()
             return;
         }
-        if(args == ' ')
+        if(args == '')
         {
             let invalidUsage = new Discord.RichEmbed()
                 .setTitle('Invalid Usage')
