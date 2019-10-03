@@ -21,8 +21,8 @@ bot.on('message', message => {
 });
 
 bot.on('ready', () => {
-    bot.user.setStatus('online')
-    // bot.user.setPresence({ game: { name: 'Protecting Guilds | ;help', type: 0 } });
+    bot.user.setStatus('dnd')
+    bot.user.setPresence({ game: { name: 'Protecting Guilds', type: 0 } });
     console.log("All systems online. Bot is ready.");
 });
 
