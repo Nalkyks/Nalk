@@ -18,8 +18,8 @@ class BanCommand extends Commando.Command
         if(!message.member.hasPermission('BAN_MEMBERS'))
         {
             let invalidPermission = new Discord.RichEmbed()
-                .setTitle('Invalid Permissions')
-                .setDescription("You do not have permission to use the `ban` command. Contact the server/guild owner or an administrator/moderator for help.")
+                .setTitle('Error: Invalid Permissions')
+                .setDescription("You do not have permission to use the `ban` command. Think this is a mistake? Contact the server/guild owner or an administrator/moderator for assistance.")
                 .setThumbnail('https://bit.ly/2DRDdkA')
                 .setColor(0xFF0000)
                 .setFooter('Requested by: ' + message.author.username)
@@ -31,7 +31,7 @@ class BanCommand extends Commando.Command
         if(!bannedUser)
         {
             let invalidUser = new Discord.RichEmbed()
-                .setTitle('Member Not Found')
+                .setTitle('Error: Invalid Member')
                 .setDescription("The requested user to be banned is invalid. User may have left the server before you could've banned them, or you made a typo.")
                 .setThumbnail('https://bit.ly/2DRDdkA')
                 .setColor(0xFF0000)
@@ -45,8 +45,8 @@ class BanCommand extends Commando.Command
         if(!reason)
         {
             let invalidReason = new Discord.RichEmbed()
-                .setTitle('No Reason Was Specified')
-                .setDescription("No reason was specified on why " + bannedUser + " is getting banned. Please provide a reason on why " + bannedUser + " is getting banned.")
+                .setTitle('Error: Invalid Reason')
+                .setDescription("No reason was specified on why " + bannedUser + " is getting banned, please provide a reason on why " + bannedUser + " is getting banned and try again.")
                 .setThumbnail('https://bit.ly/2DRDdkA')
                 .setColor(0xFF0000)
                 .setFooter('Requested by: ' + message.author.username)
@@ -60,12 +60,12 @@ class BanCommand extends Commando.Command
         message.delete();
         let banEmbed = new Discord.RichEmbed()
             .setTitle("Ban Details")
-            .setDescription("These are the ban details for " + bannedUser + ", and gives you more information about the banned user.")
+            .setDescription("These are the ban details for " + bannedUser + ", and gives you more information about the banned user and administrator/moderator.")
             .setColor(0xFF0000)
             .addField("Banned User:", bannedUser + " with ID: " + bannedUser.id)
             .addField("Banned By:", message.author + " with ID: " + message.author.id)
             .addField("Banned On:", message.createdAt)
-            .addField("Reason for Ban:", reason)
+            .addField("Moderator Note:", reason)
         message.channel.sendEmbed(banEmbed);
         console.log("The 'ban' command has been completed successfully."); 
     }
