@@ -21,7 +21,7 @@ Nalk.on('message', message => {
 });
 
 Nalk.on('ready', () => {
-    Nalk.user.setStatus('online')
+    //Nalk.user.setStatus('dnd')
     //Nalk.user.setPresence({ game: { name: 'with Nalkyks', type: 0 } });
     console.log("All systems online. Bot is ready.");
 });
