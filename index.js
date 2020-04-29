@@ -1,6 +1,6 @@
 const Commando = require('discord.js-commando');
 const Discord = require('discord.js');
-const bot = new Commando.Client({
+const Nalk = new Commando.Client({
     commandPrefix: ';',
     owner: process.env.OWNER,
     disableEveryone: false,
@@ -8,22 +8,22 @@ const bot = new Commando.Client({
 });
 const TOKEN = process.env.TOKEN;
 
-bot.registry.registerGroup('entertainment', 'Entertainment');
-bot.registry.registerGroup('moderation', 'Moderation');
-bot.registry.registerDefaults();
-bot.registry.registerCommandsIn(__dirname + "/commands");
+Nalk.registry.registerGroup('entertainment', 'Entertainment');
+Nalk.registry.registerGroup('moderation', 'Moderation');
+Nalk.registry.registerDefaults();
+Nalk.registry.registerCommandsIn(__dirname + "/commands");
 
-bot.on('message', message => {
+Nalk.on('message', message => {
     if(message.content == '522575184243458059')
     {
         message.channel.send("Testing complete.")
     }
 });
 
-bot.on('ready', () => {
-    bot.user.setStatus('dnd')
-    bot.user.setPresence({ game: { name: 'Protecting Guilds', type: 0 } });
+Nalk.on('ready', () => {
+    Nalk.user.setStatus('dnd')
+    Nalk.user.setPresence({ game: { name: 'Protecting Guilds | ;help', type: 0 } });
     console.log("All systems online. Bot is ready.");
 });
 
-bot.login(TOKEN);
+Nalk.login(TOKEN);
