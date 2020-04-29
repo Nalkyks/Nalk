@@ -1,7 +1,7 @@
 {
-  "name": "sentry",
+  "name": "nalk",
   "version": "4.5.3",
-  "description": "Sentry - A Discord security bot that has all of the moderation commands. For bonus, there's also some fun commands too.",
+  "description": "Nalk - A Discord security bot that has all of the moderation commands. For bonus, there's also some fun commands too.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
