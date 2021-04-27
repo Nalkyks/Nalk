@@ -1,7 +1,7 @@
 const Commando = require('discord.js-commando');
 const Discord = require('discord.js');
 
-class DiceRollCommand extends Commando.Command
+class PurgeCommand extends Commando.Command
 {
     constructor(client)
     {
@@ -46,4 +46,4 @@ class DiceRollCommand extends Commando.Command
     }
 }
 
-module.exports = DiceRollCommand;
+module.exports = PurgeCommand;
